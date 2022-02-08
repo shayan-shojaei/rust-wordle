@@ -34,7 +34,7 @@ fn main() {
         println!("Pleast input your 5 letter answer");
         let guess = input_validator.read_input();
 
-        if !input_validator.validity_issue.is_none() {
+        if input_validator.validity_issue.is_some() {
             continue;
         }
 

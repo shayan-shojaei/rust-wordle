@@ -26,16 +26,16 @@ impl<'a> InputsValidator<'a> {
 
     pub fn get_validity_issue(&self) -> &str {
         match &self.validity_issue {
-            None => return "",
-            Some(issue) => return issue.as_str(),
-        };
+            None => "",
+            Some(issue) => issue.as_str(),
+        }
     }
 
     pub fn clear_issue(&mut self) {
         self.validity_issue = None;
     }
 
-    pub fn validate_input(&self, input: &String) -> Option<String> {
+    pub fn validate_input(&self, input: &str) -> Option<String> {
         if input.len() != 5 {
             return Some("The input should be a 5 letter English word!".to_string());
         } else if !self.words.contains(input) {

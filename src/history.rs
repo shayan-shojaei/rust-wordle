@@ -73,7 +73,7 @@ impl GameHistory {
 
         for (i, round) in self.board.iter().enumerate() {
             for tile_state in round {
-                history_text.push_str(GameHistory::gen_box(&tile_state).as_str());
+                history_text.push_str(GameHistory::gen_box(tile_state).as_str());
             }
             if i < self.board.len() - 1 {
                 history_text.push('\n');
@@ -85,16 +85,16 @@ impl GameHistory {
     fn gen_box(state: &TileState) -> String {
         match state {
             TileState::Unfilled(letter) => {
-                format!("{}", letter.to_string().on_bright_black()).to_string()
+                format!("{}", letter.to_string().on_bright_black())
             }
             TileState::Wrong(letter) => {
-                format!("{}", letter.to_string().white().on_red().bold()).to_string()
+                format!("{}", letter.to_string().white().on_red().bold())
             }
             TileState::Contained(letter) => {
-                format!("{}", letter.to_string().black().on_yellow().bold()).to_string()
+                format!("{}", letter.to_string().black().on_yellow().bold())
             }
             TileState::Correct(letter) => {
-                format!("{}", letter.to_string().black().on_bright_green().bold()).to_string()
+                format!("{}", letter.to_string().black().on_bright_green().bold())
             }
         }
     }
