@@ -19,7 +19,7 @@ fn main() {
     loop {
         visuals::clear_screen();
 
-        println!("answer:\t {}", answer);
+        // println!("answer:\t {}", answer);
 
         println!("{}", history.draw_history());
 
