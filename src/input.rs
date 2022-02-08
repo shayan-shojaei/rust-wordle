@@ -19,7 +19,7 @@ impl<'a> InputsValidator<'a> {
         stdin()
             .read_line(&mut input)
             .expect("There was an issue with the input");
-        input = input.trim().to_string();
+        input = input.trim().to_lowercase().to_string();
         self.validity_issue = self.validate_input(&input);
         input
     }
