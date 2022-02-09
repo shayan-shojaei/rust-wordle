@@ -16,8 +16,33 @@ impl Words {
     }
 
     pub fn contains(&self, word: &str) -> bool {
+        // self.allowed_guesses.contains(&word.to_string()) || self.answers.contains(&word.to_string())
         // TODO: use binary search as the lists are already sorted alphabetically
-        self.allowed_guesses.contains(&word.to_string()) || self.answers.contains(&word.to_string())
+        self.binary_search(word, &self.answers) || self.binary_search(word, &self.allowed_guesses)
+    }
+
+    fn binary_search(&self, word: &str, list: &Vec<String>) -> bool {
+        let characters: Vec<char> = word.chars().collect();
+        let mut start = 0;
+        let mut end = list.len() - 1;
+        while start <= end {
+            let mut mid = start + (end - start) / 2;
+            let current_mid_word: Vec<char> = list[mid].chars().collect();
+            if word == list[mid] {
+                return true;
+            }
+            let mut character_index = 0; // which character to compare
+            while characters[character_index] == current_mid_word[character_index] {
+                // current character matches but not the same word so check the next character
+                character_index += 1;
+            }
+            if characters[character_index] > current_mid_word[character_index] {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        false
     }
 
     // open file and create a vector of strings with each line of the file as its elements
