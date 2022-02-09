@@ -25,4 +25,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUSTTARGET: ${{ matrix.target }}
           ARCHIVE_TYPES: ${{ matrix.archive }}
-          EXTRA_FILES: "README.md LICENSE answers.txt allowed-guesses.txt"
+          EXTRA_FILES: "README.md LICENSE assets"
