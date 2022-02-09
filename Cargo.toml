@@ -1,6 +1,6 @@
 [package]
 name = "rust-wordle"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 homepage = "https://github.com/shayan-shojaei/rust-wordle"
 repository = "https://github.com/shayan-shojaei/rust-wordle"

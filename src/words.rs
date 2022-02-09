@@ -7,8 +7,8 @@ pub struct Words {
 
 impl Words {
     pub fn load() -> Words {
-        let answers = Words::read_words_from_file("answers.txt");
-        let allowed_guesses = Words::read_words_from_file("allowed-guesses.txt");
+        let answers = Words::read_words_from_file("assets/answers.txt");
+        let allowed_guesses = Words::read_words_from_file("assets/allowed-guesses.txt");
         Words {
             answers,
             allowed_guesses,
@@ -26,7 +26,7 @@ impl Words {
         let mut start = 0;
         let mut end = list.len() - 1;
         while start <= end {
-            let mut mid = start + (end - start) / 2;
+            let mid = start + (end - start) / 2;
             let current_mid_word: Vec<char> = list[mid].chars().collect();
             if word == list[mid] {
                 return true;
